@@ -1,0 +1,222 @@
+
+<div style="display:flex;justify-content:center;padding:2rem 0;background:transparent;">
+  <div style="width:320px;background:#1c1c1e;border-radius:50px;padding:11px;box-shadow:0 0 0 1px #2c2c2e,0 30px 80px rgba(0,0,0,0.7);">
+    <div style="background:#000;border-radius:42px;overflow:hidden;min-height:650px;display:flex;flex-direction:column;">
+
+      <div style="display:flex;justify-content:center;padding-top:10px;">
+        <div style="width:110px;height:30px;background:#000;border-radius:0 0 18px 18px;border:1.5px solid #1c1c1e;border-top:none;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <div style="width:10px;height:10px;border-radius:50%;background:#1c1c1e;"></div>
+          <div style="width:50px;height:5px;border-radius:3px;background:#1c1c1e;"></div>
+        </div>
+      </div>
+
+      <div style="padding:2px 24px 0;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;font-weight:700;color:#fff;">9:41</span>
+        <div style="display:flex;gap:5px;align-items:center;">
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none"><rect x="0" y="4" width="3" height="7" rx="1" fill="white" opacity="0.4"/><rect x="4.5" y="2.5" width="3" height="8.5" rx="1" fill="white" opacity="0.6"/><rect x="9" y="0.5" width="3" height="10.5" rx="1" fill="white"/></svg>
+          <div style="display:flex;align-items:center;"><div style="width:22px;height:11px;border:1.5px solid rgba(255,255,255,0.4);border-radius:3px;padding:1.5px;display:flex;align-items:center;"><div style="height:6px;background:#30d158;border-radius:1px;width:75%;"></div></div></div>
+        </div>
+      </div>
+
+      <div style="padding:16px 22px 0;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px;">
+          <div>
+            <p style="color:#636366;font-size:11px;margin:0 0 2px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;">Saturday • Apr 4</p>
+            <h1 style="color:#fff;font-size:28px;font-weight:800;margin:0;letter-spacing:-0.8px;">My Tasks</h1>
+          </div>
+          <div style="position:relative;width:54px;height:54px;margin-top:2px;">
+            <svg width="54" height="54" viewBox="0 0 54 54">
+              <circle cx="27" cy="27" r="22" fill="none" stroke="#3a0a0a" stroke-width="5"/>
+              <circle cx="27" cy="27" r="22" fill="none" stroke="#ff375f" stroke-width="5" stroke-linecap="round" stroke-dasharray="138.2" id="ring-outer" stroke-dashoffset="50" transform="rotate(-90 27 27)"/>
+              <circle cx="27" cy="27" r="15" fill="none" stroke="#0a2e0a" stroke-width="5"/>
+              <circle cx="27" cy="27" r="15" fill="none" stroke="#30d158" stroke-width="5" stroke-linecap="round" stroke-dasharray="94.2" id="ring-inner" stroke-dashoffset="40" transform="rotate(-90 27 27)"/>
+            </svg>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <span id="pct-label" style="font-size:11px;font-weight:800;color:#fff;"></span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin:14px 0 16px;">
+          <div style="flex:1;background:#1c1c1e;border-radius:14px;padding:10px 12px;border:1px solid #2c2c2e;">
+            <p style="color:#ff375f;font-size:10px;font-weight:700;margin:0 0 2px;letter-spacing:0.05em;text-transform:uppercase;">Active</p>
+            <p id="stat-active" style="color:#fff;font-size:20px;font-weight:800;margin:0;">0</p>
+          </div>
+          <div style="flex:1;background:#1c1c1e;border-radius:14px;padding:10px 12px;border:1px solid #2c2c2e;">
+            <p style="color:#30d158;font-size:10px;font-weight:700;margin:0 0 2px;letter-spacing:0.05em;text-transform:uppercase;">Done</p>
+            <p id="stat-done" style="color:#fff;font-size:20px;font-weight:800;margin:0;">0</p>
+          </div>
+          <div style="flex:1;background:#1c1c1e;border-radius:14px;padding:10px 12px;border:1px solid #2c2c2e;">
+            <p style="color:#ffd60a;font-size:10px;font-weight:700;margin:0 0 2px;letter-spacing:0.05em;text-transform:uppercase;">Total</p>
+            <p id="stat-total" style="color:#fff;font-size:20px;font-weight:800;margin:0;">0</p>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+          <div style="flex:1;display:flex;gap:4px;background:#1c1c1e;border-radius:10px;padding:3px;">
+            <button onclick="setFilter('all')" id="f-all" style="flex:1;padding:6px 0;border-radius:7px;border:none;font-size:11px;font-weight:700;cursor:pointer;background:#fff;color:#000;">All</button>
+            <button onclick="setFilter('active')" id="f-active" style="flex:1;padding:6px 0;border-radius:7px;border:none;background:transparent;color:#636366;font-size:11px;font-weight:700;cursor:pointer;">Active</button>
+            <button onclick="setFilter('done')" id="f-done" style="flex:1;padding:6px 0;border-radius:7px;border:none;background:transparent;color:#636366;font-size:11px;font-weight:700;cursor:pointer;">Done</button>
+          </div>
+          <button onclick="clearDone()" style="padding:6px 10px;border-radius:10px;border:1px solid #3a1010;background:#2a0a0a;color:#ff375f;font-size:11px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#ff375f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+            Clear
+          </button>
+        </div>
+      </div>
+
+      <div id="task-list" style="flex:1;padding:0 22px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;"></div>
+
+      <div style="padding:12px 22px 24px;">
+        <div style="display:flex;gap:10px;align-items:center;background:#1c1c1e;border-radius:16px;padding:9px 9px 9px 16px;border:1px solid #2c2c2e;">
+          <input id="new-task" placeholder="Add task…" style="flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:14px;font-weight:500;" onkeydown="if(event.key==='Enter')addTask()"/>
+          <button onclick="addTask()" style="width:34px;height:34px;border-radius:50%;background:linear-gradient(145deg,#ff375f,#ff6b81);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(255,55,95,0.45);">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5v11M1.5 7h11" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+.task-card{animation:pop 0.22s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes pop{from{opacity:0;transform:scale(0.94) translateY(6px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.icon-bubble{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.chk{width:30px;height:30px;border-radius:50%;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 0.15s,box-shadow 0.2s;border:2.5px solid #3a3a3c;background:transparent;}
+.chk:active{transform:scale(0.8);}
+.chk.on{border:none;}
+.del-btn{
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(255,55,95,0.12);
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:background 0.15s,transform 0.12s;
+}
+.del-btn:hover{background:rgba(255,55,95,0.25);}
+.del-btn:active{transform:scale(0.82);}
+</style>
+
+<script>
+const ICONS={
+  fitness:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5h11M6.5 17.5h11M3 10h3v4H3zM18 10h3v4h-3z"/><line x1="6" y1="12" x2="18" y2="12"/></svg>`,
+  run:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="2"/><path d="M7 21l4-8 3 3 2-5 4 3"/><path d="M11 13l-3 2-1 4"/></svg>`,
+  food:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>`,
+  steps:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l4-8 4 4 3-6 4 10"/></svg>`,
+  water:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6 8 4 13 4 16a8 8 0 0 0 16 0c0-3-2-8-8-14z"/></svg>`,
+  sleep:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`,
+  yoga:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M12 6v6l-3 4m3-4l3 4M9 21h6"/></svg>`,
+  heart:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+  shop:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>`,
+  work:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>`,
+  call:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
+  default:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>`,
+};
+
+const TICK_SVG=`<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7L6 10.5L11.5 4" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+const CROSS_SVG=`<svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+  <line x1="1.5" y1="1.5" x2="9.5" y2="9.5" stroke="#ff375f" stroke-width="2" stroke-linecap="round"/>
+  <line x1="9.5" y1="1.5" x2="1.5" y2="9.5" stroke="#ff375f" stroke-width="2" stroke-linecap="round"/>
+</svg>`;
+
+const CATS=[
+  {g:'linear-gradient(145deg,#ff375f,#ff6b81)',gc:'rgba(255,55,95,0.45)',dot:'#ff375f',bg:'rgba(255,55,95,0.14)',fg:'#ff375f'},
+  {g:'linear-gradient(145deg,#30d158,#34d399)',gc:'rgba(48,209,88,0.45)',dot:'#30d158',bg:'rgba(48,209,88,0.14)',fg:'#30d158'},
+  {g:'linear-gradient(145deg,#ffd60a,#ff9f0a)',gc:'rgba(255,214,10,0.45)',dot:'#ffd60a',bg:'rgba(255,214,10,0.14)',fg:'#ffd60a'},
+  {g:'linear-gradient(145deg,#0a84ff,#30b0c7)',gc:'rgba(10,132,255,0.45)',dot:'#0a84ff',bg:'rgba(10,132,255,0.14)',fg:'#0a84ff'},
+  {g:'linear-gradient(145deg,#bf5af2,#ff375f)',gc:'rgba(191,90,242,0.45)',dot:'#bf5af2',bg:'rgba(191,90,242,0.14)',fg:'#bf5af2'},
+];
+
+function detectIcon(text){
+  const t=text.toLowerCase();
+  if(/run|jog|sprint|walk|km|mile/.test(t))return'run';
+  if(/yoga|stretch|meditat/.test(t))return'yoga';
+  if(/meal|food|eat|cook|groceri|lunch|dinner|breakfast/.test(t))return'food';
+  if(/water|hydrat|drink/.test(t))return'water';
+  if(/sleep|rest|nap|bed/.test(t))return'sleep';
+  if(/heart|cardio|pulse/.test(t))return'heart';
+  if(/shop|buy|purchas|order/.test(t))return'shop';
+  if(/call|phone|dentist|doctor|meeting|zoom/.test(t))return'call';
+  if(/work|project|report|review|task|email/.test(t))return'work';
+  if(/ring|activity|fitness|gym|workout/.test(t))return'fitness';
+  if(/step/.test(t))return'steps';
+  return'default';
+}
+
+let tasks=[
+  {id:1,text:'Close activity rings',done:false,c:0,icon:'fitness'},
+  {id:2,text:'Morning yoga session',done:true,c:1,icon:'yoga'},
+  {id:3,text:'Meal prep for the week',done:false,c:2,icon:'food'},
+  {id:4,text:'10k steps goal',done:false,c:3,icon:'steps'},
+  {id:5,text:'Hydration — 2L water',done:true,c:4,icon:'water'},
+];
+let filter='all',nextId=6;
+
+function setFilter(f){
+  filter=f;
+  ['all','active','done'].forEach(x=>{
+    const b=document.getElementById('f-'+x);
+    if(x===f){b.style.background='#fff';b.style.color='#000';}
+    else{b.style.background='transparent';b.style.color='#636366';}
+  });
+  render();
+}
+function clearDone(){tasks=tasks.filter(t=>!t.done);render();}
+function toggle(id){const t=tasks.find(x=>x.id===id);if(t){t.done=!t.done;render();}}
+function remove(id){tasks=tasks.filter(x=>x.id!==id);render();}
+function addTask(){
+  const inp=document.getElementById('new-task');
+  const text=inp.value.trim();
+  if(!text)return;
+  tasks.unshift({id:nextId,text,done:false,c:nextId%CATS.length,icon:detectIcon(text)});
+  nextId++;inp.value='';render();
+}
+
+function updateStats(){
+  const done=tasks.filter(t=>t.done).length;
+  const active=tasks.filter(t=>!t.done).length;
+  const total=tasks.length;
+  document.getElementById('stat-active').textContent=active;
+  document.getElementById('stat-done').textContent=done;
+  document.getElementById('stat-total').textContent=total;
+  const pct=total?Math.round((done/total)*100):0;
+  document.getElementById('pct-label').textContent=pct+'%';
+  const oc=2*Math.PI*22,ic=2*Math.PI*15;
+  document.getElementById('ring-outer').setAttribute('stroke-dashoffset',oc-(oc*(pct/100)));
+  document.getElementById('ring-inner').setAttribute('stroke-dashoffset',ic-(ic*(active/Math.max(total,1))));
+}
+
+function render(){
+  updateStats();
+  const list=document.getElementById('task-list');
+  const visible=tasks.filter(t=>filter==='all'?true:filter==='active'?!t.done:t.done);
+  if(!visible.length){
+    list.innerHTML='<p style="color:#48484a;font-size:13px;text-align:center;margin-top:32px;font-weight:500;">All clear!</p>';
+    return;
+  }
+  list.innerHTML=visible.map(t=>{
+    const cat=CATS[t.c];
+    const ico=ICONS[t.icon]||ICONS.default;
+    return`
+    <div class="task-card" style="background:#1c1c1e;border-radius:16px;padding:11px 10px 11px 12px;display:flex;align-items:center;gap:10px;border:1px solid #2c2c2e;">
+      <div class="icon-bubble" style="background:${t.done?'#2a2a2c':cat.bg};color:${t.done?'#48484a':cat.fg};transition:all 0.25s;">${ico}</div>
+      <div style="flex:1;min-width:0;">
+        <div style="color:${t.done?'#48484a':'#f2f2f7'};font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-0.2px;${t.done?'text-decoration:line-through;':''}transition:color 0.25s;">${t.text}</div>
+        <div style="width:22px;height:3px;border-radius:99px;background:${t.done?'#3a3a3c':cat.g};margin-top:4px;transition:background 0.25s;"></div>
+      </div>
+      <button class="chk ${t.done?'on':''}" onclick="toggle(${t.id})" title="${t.done?'Mark incomplete':'Mark complete'}"
+        style="${t.done?`background:${cat.g};box-shadow:0 2px 10px ${cat.gc};`:`border-color:${cat.dot}66;`}">
+        ${t.done?TICK_SVG:''}
+      </button>
+      <button class="del-btn" onclick="remove(${t.id})" title="Delete task">
+        ${CROSS_SVG}
+      </button>
+    </div>`;
+  }).join('');
+}
+
+render();
+</script>
